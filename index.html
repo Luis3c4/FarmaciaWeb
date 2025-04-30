@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="src/logo.png" alt="Pharmacy Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-icon">
+                <a href="/account">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Main Carousel -->
+            <div class="main-carousel">
+                <div class="carousel-item">
+                    <img src="src/pediasure-banner.png" alt="PediaSure Pack Promotion">
+                </div>
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Products Carousel -->
+            <div class="products-carousel">
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="category">DERMATOLOGÍA</div>
+                        <div class="product-image">
+                            <img src="src/cerave.png" alt="CeraVe Foaming Cleanser">
+                        </div>
+                        <h3 class="product-title">Gel Limpiador Espumoso CeraVe Foaming Cleanser</h3>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="category">CUIDADO BEBÉ</div>
+                        <div class="product-image">
+                            <img src="src/chupon.png" alt="Chupón Ortodóntico">
+                        </div>
+                        <h3 class="product-title">Chupón Ortodóntico HappyMom 0-6M Niño</h3>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="category">HIGIENE CAPILAR</div>
+                        <div class="product-image">
+                            <img src="src/shampoo.png" alt="Head & Shoulders Shampoo">
+                        </div>
+                        <h3 class="product-title">Shampoo Anti-Caspa Head & Shoulders Menta Extra</h3>
+                        <button class="cart-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="catalog-btn-container">
+                    <button class="catalog-btn">Catálogo</button>
+                </div>
+            </div>
+
+            <!-- Additional Promotions -->
+            <div class="promotions-grid">
+                <!-- Similac Promotion -->
+                <div class="promotion-item">
+                    <img src="src/promocion-similac.png" alt="Similac Pack Promotion">
+                    <button class="add-btn"><i class="fas fa-plus"></i></button>
+                </div>
+
+                <!-- L'Oreal Promotion -->
+                <div class="promotion-item">
+                    <img src="src/loreal.png" alt="L'Oreal Paris Promotion">
+                    <button class="add-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Final Promotions -->
+            <div class="promotions-grid">
+                <!-- PediaSure Promotion -->
+                <div class="promotion-item">
+                    <img src="src/pediasure-banner.png" alt="PediaSure Pack Promotion">
+                    <button class="add-btn"><i class="fas fa-plus"></i></button>
+                </div>
+
+                <!-- Huggies Promotion -->
+                <div class="promotion-item">
+                    <img src="src/huggies.png" alt="Huggies Promotion">
+                    <button class="add-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h3>Monedero del Ahorro</h3>
+                    <ul>
+                        <li><a href="#">Programa Apoyo al Paciente</a></li>
+                        <li><a href="#">Catálogo del mes</a></li>
+                        <li><a href="#">Productos Equivalentes</a></li>
+                        <li><a href="#">Call Center - Términos y Condiciones</a></li>
+                        <li><a href="#">WhatsApp - Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3>Contáctanos</h3>
+                    <ul>
+                        <li><a href="#">Nuestras boticas</a></li>
+                        <li><a href="#">Información Médica</a></li>
+                        <li><a href="#">Consultas y Sugerencias</a></li>
+                        <li><a href="#">Zona de cobertura</a></li>
+                        <li><a href="#">Central Telefónica</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3>Síguenos</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Whatsapp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
