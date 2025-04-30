@@ -1,0 +1,12 @@
+dao\ConexionDB.class
+controlador\TestServlet.class
+com\mycompany\farmacia\JakartaRestConfiguration.class
+controlador\EditarProductoServlet.class
+controlador\ProductoServlet.class
+controlador\UsuarioServlet.class
+controlador\EliminarProductoServlet.class
+modelo\Producto.class
+com\mycompany\farmacia\resources\JakartaEE10Resource.class
+dao\UsuarioDAO.class
+dao\ProductoDAO.class
+modelo\Usuario.class
