@@ -10,3 +10,4 @@ com\mycompany\farmacia\resources\JakartaEE10Resource.class
 dao\UsuarioDAO.class
 dao\ProductoDAO.class
 modelo\Usuario.class
+controlador\LoginServlet.class
