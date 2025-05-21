@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FARMA Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen bg-white">
+    <!-- Sidebar -->
+    <div class="w-64 border-r bg-white">
+      <div class="flex items-center gap-2 p-6 border-b">
+        <div class="w-8 h-8">
+          <img src="https://via.placeholder.com/32" alt="FARMA logo" width="32" height="32">
+        </div>
+        <span class="text-blue-500 font-bold text-xl">FARMA</span>
+      </div>
+      <nav class="p-4 space-y-2">
+        <a href="#" class="flex items-center gap-3 text-gray-600 p-3 rounded-md hover:bg-gray-100">
+          <i class="fas fa-home w-5"></i>
+          <span>Inicio</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 text-gray-600 p-3 rounded-md hover:bg-gray-100">
+          <i class="fas fa-box w-5"></i>
+          <span>Productos</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 text-gray-600 p-3 rounded-md hover:bg-gray-100">
+          <i class="fas fa-chart-bar w-5"></i>
+          <span>Ventas</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 text-gray-600 p-3 rounded-md hover:bg-gray-100">
+          <i class="fas fa-users w-5"></i>
+          <span>Clientes</span>
+        </a>
+      </nav>
+      <div class="absolute bottom-0 w-64 border-t p-4">
+        <a href="#" class="flex items-center gap-3 text-gray-600 p-3 rounded-md hover:bg-gray-100">
+          <i class="fas fa-sign-out-alt w-5"></i>
+          <span>Cerrar Sesión</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Header -->
+      <header class="flex justify-between items-center p-6 border-b bg-white">
+        <h1 class="text-3xl font-bold">Dashboard</h1>
+        <div class="flex items-center gap-4">
+          <button class="p-2">
+            <i class="fas fa-bell text-gray-500"></i>
+          </button>
+          <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+            <img src="https://via.placeholder.com/40" alt="User" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <!-- Line Chart Card -->
+          <div class="bg-white rounded-lg shadow p-4">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-sm font-medium">Sessions</h3>
+              <span class="text-sm font-bold">741</span>
+            </div>
+            <div class="h-48">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Pie Chart Card -->
+          <div class="bg-white rounded-lg shadow p-4">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-sm font-medium">Sessions</h3>
+            </div>
+            <div class="flex">
+              <div class="w-1/2 h-48">
+                <canvas id="pieChart"></canvas>
+              </div>
+              <div class="w-1/2 pl-4 space-y-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-blue-200 mr-2"></span>
+                    <span class="text-xs">Email</span>
+                  </div>
+                  <span class="text-xs font-medium">40</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-blue-300 mr-2"></span>
+                    <span class="text-xs">Referral</span>
+                  </div>
+                  <span class="text-xs font-medium">40</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-yellow-200 mr-2"></span>
+                    <span class="text-xs">Paid Search</span>
+                  </div>
+                  <span class="text-xs font-medium">37</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-yellow-300 mr-2"></span>
+                    <span class="text-xs">(Other)</span>
+                  </div>
+                  <span class="text-xs font-medium">35</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-blue-400 mr-2"></span>
+                    <span class="text-xs">Direct</span>
+                  </div>
+                  <span class="text-xs font-medium">32</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-green-300 mr-2"></span>
+                    <span class="text-xs">Social</span>
+                  </div>
+                  <span class="text-xs font-medium">28</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-gray-300 mr-2"></span>
+                    <span class="text-xs">Display</span>
+                  </div>
+                  <span class="text-xs font-medium">27</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-green-200 mr-2"></span>
+                    <span class="text-xs">Organic Search</span>
+                  </div>
+                  <span class="text-xs font-medium">10</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Engaged Sessions</h3>
+            <p class="text-2xl font-bold">1,158</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Engagement Rate</h3>
+            <p class="text-2xl font-bold">24.31%</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Sessions</h3>
+            <p class="text-2xl font-bold">755</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Sessions per User</h3>
+            <p class="text-2xl font-bold">35.55</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Active Users</h3>
+            <p class="text-2xl font-bold">982</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Average Engagement Time</h3>
+            <p class="text-2xl font-bold">00:00:21</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Average Engagement Time</h3>
+            <p class="text-2xl font-bold">00:00:30</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">New Users</h3>
+            <p class="text-2xl font-bold">841</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Total Users</h3>
+            <p class="text-2xl font-bold">469</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">User Engagement</h3>
+            <p class="text-2xl font-bold">21m 32s</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Views</h3>
+            <p class="text-2xl font-bold">681</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-sm font-medium mb-2">Conversions</h3>
+            <p class="text-2xl font-bold">931</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Configuración de Chart.js
+    document.addEventListener('DOMContentLoaded', function() {
+      // Line Chart
+      const lineCtx = document.getElementById('lineChart').getContext('2d');
+      const lineChart = new Chart(lineCtx, {
+        type: 'line',
+        data: {
+          labels: ['Jan 1', '', 'Jan 7', '', 'Jan 14', '', 'Jan 21', '', 'Jan 28'],
+          datasets: [{
+            label: 'Sessions',
+            data: [20, 40, 15, 35, 25, 50, 10, 30, 20, 45, 15, 35, 25],
+            borderColor: '#1e88e5',
+            backgroundColor: 'rgba(30, 136, 229, 0.1)',
+            tension: 0.4,
+            borderWidth: 2,
+            pointRadius: 0,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              enabled: true
+            }
+          },
+          scales: {
+            y: {
+              min: -20,
+              max: 60,
+              ticks: {
+                stepSize: 20
+              },
+              grid: {
+                color: '#e5e7eb'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+
+      // Pie Chart
+      const pieCtx = document.getElementById('pieChart').getContext('2d');
+      const pieChart = new Chart(pieCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Email', 'Referral', 'Paid Search', '(Other)', 'Direct', 'Social', 'Display', 'Organic Search'],
+          datasets: [{
+            data: [40, 40, 37, 35, 32, 28, 27, 10],
+            backgroundColor: [
+              '#a5c8d0', // Email
+              '#90caf9', // Referral
+              '#ffe082', // Paid Search
+              '#e6c07b', // Other
+              '#4fc3f7', // Direct
+              '#81c784', // Social
+              '#d4d4d4', // Display
+              '#b9f6ca'  // Organic Search
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '70%',
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              enabled: true
+            }
+          }
+        }
+      });
+
+      // Añadir texto en el centro del gráfico de donut
+      Chart.register({
+        id: 'centerText',
+        beforeDraw: function(chart) {
+          if (chart.config.type === 'doughnut') {
+            const width = chart.width;
+            const height = chart.height;
+            const ctx = chart.ctx;
+            
+            ctx.restore();
+            const fontSize = (height / 114).toFixed(2);
+            ctx.font = fontSize + 'em sans-serif';
+            ctx.textBaseline = 'middle';
+            
+            const text = '249';
+            const textX = Math.round((width - ctx.measureText(text).width) / 2);
+            const textY = height / 2 - 10;
+            
+            ctx.fillText(text, textX, textY);
+            
+            ctx.font = (fontSize * 0.5) + 'em sans-serif';
+            const subText = 'Sessions';
+            const subTextX = Math.round((width - ctx.measureText(subText).width) / 2);
+            const subTextY = height / 2 + 10;
+            
+            ctx.fillText(subText, subTextX, subTextY);
+            ctx.save();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
