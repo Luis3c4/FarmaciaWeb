@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DashboardController {
     @GetMapping("/home")
     public String getMethodName() {
-        return "dashboard";
+        return "index";
     }
 }
