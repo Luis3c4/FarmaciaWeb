@@ -18,6 +18,12 @@ function cargarVista(vista) {
       if (vista === "dashboard" && typeof window.initDashboard === "function") {
         window.initDashboard();
       }
+      // Ejecutar inicialización si es productos
+      if (vista === "productos" && typeof initProductosForm === "function") {
+        setTimeout(() => {
+          initProductosForm();
+        }, 100);
+      }
     })
     .catch(err => {
       console.error("Error al cargar la vista:", err)
