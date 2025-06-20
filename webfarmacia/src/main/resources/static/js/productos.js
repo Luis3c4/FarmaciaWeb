@@ -45,11 +45,11 @@ function initProductosForm() {
         e.preventDefault();
         console.log('Formulario enviado');
 
-        const stockCantidad = parseInt(document.getElementById('stockCantidad').value);
+        const stock = parseInt(document.getElementById('stock').value);
         let stockStatus;
-        if (stockCantidad <= 0) {
+        if (stock <= 0) {
             stockStatus = 'OUT_OF_STOCK';
-        } else if (stockCantidad <= 10) {
+        } else if (stock <= 10) {
             stockStatus = 'LOW_STOCK';
         } else {
             stockStatus = 'IN_STOCK';
@@ -58,9 +58,9 @@ function initProductosForm() {
         const formData = {
             nombre: document.getElementById('nombre').value,
             precio: parseFloat(document.getElementById('precio').value),
-            cantidad: parseInt(document.getElementById('cantidad').value),
+            cantidadIngresada: parseInt(document.getElementById('cantidadIngresada').value),
             descripcion: document.getElementById('descripcion').value,
-            stockCantidad: stockCantidad,
+            stock: stock,
             stockStatus: stockStatus
         };
 

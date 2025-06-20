@@ -16,13 +16,13 @@ public class Producto {
     private Long id;
     private String nombre;
     private double precio;
-    private int cantidad;
+    private int cantidadIngresada;
     private String descripcion;
     
     @Enumerated(EnumType.STRING)
     private StockStatus stockStatus;
     
-    private int stockCantidad; // Cantidad numérica para control interno
+    private int stock;
 
     // Getters and Setters
     public Long getId() {
@@ -49,12 +49,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getCantidadIngresada() {
+        return cantidadIngresada;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidadIngresada(int cantidadIngresada) {
+        this.cantidadIngresada = cantidadIngresada;
     }
 
     public String getDescripcion() {
@@ -73,16 +73,16 @@ public class Producto {
         this.stockStatus = stockStatus;
     }
 
-    public int getStockCantidad() {
-        return stockCantidad;
+    public int getStock() {
+        return stock;
     }
 
-    public void setStockCantidad(int stockCantidad) {
-        this.stockCantidad = stockCantidad;
-        // Actualizar automáticamente el estado del stock basado en la cantidad
-        if (stockCantidad <= 0) {
+    public void setStock(int stock) {
+        this.stock = stock;
+        // Actualizar automáticamente el estado del stock
+        if (stock <= 0) {
             this.stockStatus = StockStatus.OUT_OF_STOCK;
-        } else if (stockCantidad <= 10) {
+        } else if (stock <= 10) {
             this.stockStatus = StockStatus.LOW_STOCK;
         } else {
             this.stockStatus = StockStatus.IN_STOCK;

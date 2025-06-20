@@ -9,9 +9,9 @@
         <tr>
           <th>Nombre</th>
           <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Descripción</th>
-          <th>Stock</th>
+          <th>Cantidad-ingresada</th>
+          <th>Stock-actual</th>
+          <th>Stock-status</th>
         </tr>
       </thead>
       <tbody>
@@ -105,16 +105,16 @@
           <input type="number" id="precio" name="precio" step="0.01" required>
         </div>
         <div class="form-group">
-          <label for="cantidad">Cantidad:</label>
-          <input type="number" id="cantidad" name="cantidad" required>
+          <label for="cantidadIngresada">Cantidad:</label>
+          <input type="number" id="cantidadIngresada" name="cantidadIngresada" required>
         </div>
         <div class="form-group">
           <label for="descripcion">Descripción:</label>
           <textarea id="descripcion" name="descripcion" required></textarea>
         </div>
         <div class="form-group">
-          <label for="stockCantidad">Cantidad en Stock:</label>
-          <input type="number" id="stockCantidad" name="stockCantidad" required min="0">
+          <label for="stock">Cantidad en Stock:</label>
+          <input type="number" id="stock" name="stock" required min="0">
           <p class="stock-status-info">El estado del stock se calculará automáticamente:</p>
           <ul class="stock-status-rules">
             <li>0 unidades: Out of stock</li>
